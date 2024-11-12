@@ -123,7 +123,7 @@ pub async fn send_luban_request(
 
     let response = reqwest::Client::new()
         .post(url)
-        .header("x-bolt-signature", signature)
+        .header("x-luban-signature", signature)
         .json(&request)
         .send()
         .await
