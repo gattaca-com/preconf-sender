@@ -3,7 +3,7 @@ use eyre::Context;
 use reqwest::Url;
 use serde::Serialize;
 
-use crate::utils::{envelope_to_raw_btyes, prepare_rpc_request, sign_request};
+use crate::utils::{envelope_to_raw_bytes, prepare_rpc_request, sign_request};
 
 // https://github.com/chainbound/bolt/blob/lore/feat/holesky-launch/bolt-cli/src/commands/send.rs#L182
 pub async fn send_bolt_request(
@@ -13,7 +13,7 @@ pub async fn send_bolt_request(
     wallet: &PrivateKeySigner,
 ) -> eyre::Result<()> {
     let tx_hashes = vec![*tx.tx_hash()];
-    let raw_txs: Vec<Bytes> = vec![envelope_to_raw_btyes(&tx)];
+    let raw_txs: Vec<Bytes> = vec![envelope_to_raw_bytes(&tx)];
 
     let request = prepare_rpc_request(
         "bolt_requestInclusion",
@@ -56,7 +56,7 @@ pub async fn send_ethgas_request(
         slot_number: target_slot,
         replacement_uuid: "01ab2371-84d6-459e-95e7-5edad485f282".to_string(),
         trxs: vec![EthGasTxRequest {
-            tx: envelope_to_raw_btyes(&tx),
+            tx: envelope_to_raw_bytes(&tx),
             can_revert: false,
         }],
     };
@@ -108,7 +108,7 @@ pub async fn send_luban_request(
     wallet: &PrivateKeySigner,
 ) -> eyre::Result<()> {
     let tx_hashes = vec![*tx.tx_hash()];
-    let raw_txs: Vec<Bytes> = vec![envelope_to_raw_btyes(&tx)];
+    let raw_txs: Vec<Bytes> = vec![envelope_to_raw_bytes(&tx)];
 
     let request = prepare_rpc_request(
         "luban_requestInclusion",

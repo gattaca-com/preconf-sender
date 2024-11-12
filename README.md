@@ -8,10 +8,10 @@ cargo build
 
 Send a tx
 ```
-preconf-sender --tx <RAW_BYTES> --execution <EXEUCTION_URL> --preconfer <PRECONFER_URL> --beacon <BEACON_URL> --private-key <PRIVATE_KEY> --protocol <PROTOCOL>
+preconf-sender --tx <RAW_BYTES> --execution <EXECUTION_URL> --preconfer <PRECONFER_URL> --beacon <BEACON_URL> --private-key <PRIVATE_KEY> --protocol <PROTOCOL>
 ```
 
 Send a transfer to self
 ```
-preconf-sender --random --execution <EXEUCTION_URL> --preconfer <PRECONFER_URL> --beacon <BEACON_URL> --private-key <PRIVATE_KEY> --protocol <PROTOCOL>
+preconf-sender --random --execution <EXECUTION_URL> --preconfer <PRECONFER_URL> --beacon <BEACON_URL> --private-key <PRIVATE_KEY> --protocol <PROTOCOL>
 ```
