@@ -21,7 +21,7 @@ use reqwest::Url;
 #[command(name = "preconf-sender")]
 pub struct Args {
     #[arg(long("execution"), short)]
-    exeuction_url: Url,
+    execution_url: Url,
 
     #[arg(long("preconfer"))]
     preconfer_url: Url,
@@ -65,7 +65,7 @@ async fn main() -> eyre::Result<()> {
     let provider = ProviderBuilder::new()
         .with_recommended_fillers()
         .wallet(wallet)
-        .on_http(args.exeuction_url);
+        .on_http(args.execution_url);
 
     let tx_request = if args.random {
         TransactionRequest::default()
