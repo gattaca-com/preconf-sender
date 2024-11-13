@@ -40,6 +40,6 @@ pub async fn prepare_rpc_request(method: &str, params: Value) -> Value {
 
 pub fn envelope_to_raw_bytes(tx: &TxEnvelope) -> Bytes {
     let mut encoded = Vec::new();
-    tx.network_encode(&mut encoded);
+    tx.encode_2718(&mut encoded);
     encoded.into()
 }
